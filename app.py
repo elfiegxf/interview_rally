@@ -20,8 +20,11 @@ def compute(sequence, target):
     list = []
     result = ""
     ans =  helper(sequence, 0, int(target), 0, 0, "", list)
-    for i in range(0, len(ans)):
-        result = result + str(list[i]) + "\n"
+    if(len(ans) == 0) :
+        result = "impossible"
+    else:
+        for i in range(0, len(ans)):
+            result = result + str(list[i]) + "\n"
     return result
 
 
