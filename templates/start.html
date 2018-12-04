@@ -8,12 +8,19 @@
 <h1>Hi There! Welcome to Xiaofei's solution :-P</h1>
 
 <form action = "{{ url_for('start')}}"  method = "post">
-<br><label for = "input"> Input the digits sequence you made up!</label>
-<br><input type = "text" name = "sequence" placeholder="Enter Your Sequence" required>
-<br><input type = "text" name = "target" placeholder=" Enter Your Target Sum" required>
+<br><label for = "input"> Fill in the two blanks with digits sequence and target sum.
+<br> For example, if you get a sequence like 2100100, and you want them to sum up to 2000 with the operations +, - *
+<br> You should type in 2100100 and 2000 to see what will happen.
+<br> Make sure you only give numbers, alphabets are not accepted.</label>
+<br>
+<br><lable> Sequence: </lable><input type = "text" name = "sequence" placeholder="Enter Your Sequence" required>
+<br><label> Target: </label><input type = "text" name = "target" placeholder=" Enter Your Target Sum" required>
 <br><button> Submit </button>
+<br>
     <br>
     {% if result != null %}
+        <br>Your Target : {{ sum }}
+        <br>Your Sequence: {{ sequence }}
         {% for r in result.split("\n") %}
         <br> {{ r }}
         {% endfor %}

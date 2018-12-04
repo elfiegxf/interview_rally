@@ -13,8 +13,11 @@ def start():
         return render_template("start.html")
     sequence = request.form.get("sequence")
     target = request.form.get("target")
-    result = compute(sequence, target)
-    return render_template("start.html", result = result)
+    if sequence.isdigit() and target.isdigit():
+        result = compute(sequence, target)
+    else:
+        result = "Please type in only digits in the blanks and resubmit! \n"
+    return render_template("start.html", result = result, sum = target, sequence = sequence)
 
 def compute(sequence, target):
     list = []
