@@ -13,11 +13,21 @@ def start():
         return render_template("start.html")
     sequence = request.form.get("sequence").strip()
     target = request.form.get("target").strip()
-    if sequence.isdigit() and target.isdigit():
+    if is_number(sequence) and is_number(target):
         result = compute(sequence, target)
     else:
         result = "Please type in only digits in the blanks and resubmit! \n"
     return render_template("start.html", result = result, sum = target, sequence = sequence)
+
+
+def is_number(n):
+    try:
+        int(n)   # Type-casting the string to `float`.
+                   # If string is not a valid `float`,
+                   # it'll raise `ValueError` exception
+    except ValueError:
+        return False
+    return True
 
 def compute(sequence, target):
     list = []
