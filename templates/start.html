@@ -1,18 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+{% extends "bar.html" %}
+{% block yourtitle %}
     <title>Started!</title>
-</head>
-<body>
-<h1>Hi There! Welcome to Xiaofei's solution :-P</h1>
+{% endblock %}
 
+{% block subbody %}
+    <main role="main" class="inner cover">
+ <h1 class="cover-heading">Hi There! Welcome to Xiaofei's solution :-P</h1>
 <form action = "{{ url_for('start')}}"  method = "post">
-<br><label for = "input"> Fill in the two blanks with digits sequence and target sum.
-<br> For example, if you get a sequence like 2100100, and you want them to sum up to 2000 with the operations +, - *
-<br> You should type in 2100100 and 2000 to see what will happen.
-<br> Make sure you only give numbers, alphabets are not accepted.</label>
-<br>
+<p class="lead"> Fill in the two blanks with digits sequence and target sum.
+ For example, if you get a sequence like 2100100, and you want them to sum up to 2000 with the operations +, - *
+ You should type in 2100100 and 2000 to see what will happen.
+Make sure you only give numbers, alphabets are not accepted.</label>
+</p>
+<p class="lead">
 <br><lable> Sequence: </lable><input type = "text" name = "sequence" placeholder="Enter Your Sequence" required>
 <br><label> Target: </label><input type = "text" name = "target" placeholder=" Enter Your Target Sum" required>
 <br><button> Submit </button>
@@ -25,5 +25,5 @@
         <br> {{ r }}
         {% endfor %}
     {% endif %}
-</body>
-</html>
+</p>
+{% endblock %}
