@@ -11,8 +11,8 @@ def index():
 def start():
     if request.method == 'GET':
         return render_template("start.html")
-    sequence = request.form.get("sequence")
-    target = request.form.get("target")
+    sequence = request.form.get("sequence").strip()
+    target = request.form.get("target").strip()
     if sequence.isdigit() and target.isdigit():
         result = compute(sequence, target)
     else:
